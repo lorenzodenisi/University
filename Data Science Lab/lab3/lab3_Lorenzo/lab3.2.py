@@ -57,7 +57,7 @@ def apriori(dataset, minsup):
     print(L[0])
 
     for k in range(0, k_max):
-        # I put in C the combinations already pruned
+        # I put in C the combinations already pruned, I'm NOT USING self join (self join may be more efficient)
         C[k + 1] = get_combinations(get_col(L[0], 0), k + 2, L)
         print("Found " + str(len(C[k + 1])) + " combinations of " + str(k + 2) + " elements")
         # C become a list of tuples, where the first element is a set and the second is the number of occurrencies in the dataset
