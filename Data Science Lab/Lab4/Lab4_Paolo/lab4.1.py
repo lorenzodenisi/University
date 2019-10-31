@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import math
 import KMeans
 
-"""initializiong KMeans objects with given K values"""
+"""initializing KMeans objects with given K values"""
 gauss_obj = KMeans.KMeans(15)
 chameleon_obj = KMeans.KMeans(6)
 
@@ -17,7 +17,7 @@ gauss_obj.fit_predict(gauss, True, 5)
 
 """"Clusters plotting, in input: (array, point size)"""
 gauss_obj.scattering_plotting(gauss, 10)
-#chameleon_obj.scattering(chameleon, 10)
+#chameleon_obj.scattering_plotting(chameleon, 10)
 
 """Writing to file"""
 #gauss.dump_to_file("result.csv")
