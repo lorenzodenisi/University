@@ -17,7 +17,7 @@ class KMeans:
         :return: labels : array, shape = N.
         """
 
-        # TODO add check on normalization of imput data (-1,1)
+        # TODO add check on normalization of input data (-1,1)
 
         # I select the starting centroid among the already present points, randomly
         centroids_indexes = [random.randint(0, len(X)-1) for _ in range(self.n_clusters)]
