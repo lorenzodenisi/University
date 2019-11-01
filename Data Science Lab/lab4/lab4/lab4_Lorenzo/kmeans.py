@@ -45,9 +45,8 @@ class KMeans:
                     points_t = (np.array(points)).transpose()
                     # recompute the centroid according to the mean value of x and y of the points
                     self.centroids[centroid_index] = [points_t[0].mean(), points_t[1].mean()]
-            if plot_clusters:
-                if count % plot_step == 0:
-                    self.plot(X, self.labels, self.centroids)
+            if plot_clusters and count % plot_step == 0:
+                self.plot(X, self.labels, self.centroids)
 
             sys.stdout.write('\t\t\t\t\r'+str(count + 1) + "/" + str(self.max_iter))
         print('\n')
