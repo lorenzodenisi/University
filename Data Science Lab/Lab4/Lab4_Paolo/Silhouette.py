@@ -27,7 +27,7 @@ class Silhouette:
 
         matrix = np.zeros((n, n))  # Pre-allocate a data-matrix for computing later euclidean distances.
         print('Computing cartesian product...')
-
+        now = time.time()
         for ii in range(n):  # Iterate over all samples
             point_ii = X[ii]
             if ii % (n/100) == 0:  # Print calculation percentage
@@ -36,7 +36,8 @@ class Silhouette:
                 point_jj = X[jj]
                 matrix[ii][jj] = distance.euclidean(point_ii, point_jj)  # More efficient than the one used in KMeans
                 matrix[jj][ii] = matrix[ii][jj]  # These distances are the same, so we save processing time
-
+        end = time.time()  # Computation time
+        print("Time elapsed: ",  int((end - now)/60), "min ", "%.2f" % float((end - now)%60), " sec")
         for pos in range(len(labels)):
             self.cluster_sets[labels[pos]].append(pos)
 
@@ -54,7 +55,7 @@ class Silhouette:
             si = (bi - ai) / max([ai, bi])
 
             silhouette_samples_list.append(si)
-            print("Data sample no.:" + str(pos) + "cls no.: " + str(labels[pos]) + " ai: " + str(ai) + " bi: " + str(bi) + " si: " + str(si))
+            #print("Data sample no.:" + str(pos) + "cls no.: " + str(labels[pos]) + " ai: " + str(ai) + " bi: " + str(bi) + " si: " + str(si))
 
         return silhouette_samples_list
 
@@ -64,7 +65,8 @@ class Silhouette:
         :param labels: the list of cluster labels, shape = N.
         :return: silhouette : float
         """
+
         silhouette_samples_list = self.silhouette_samples(X, labels)
         score_over_all_data = np.mean(np.array(silhouette_samples_list))
-        
+
         return score_over_all_data
