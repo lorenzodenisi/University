@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 """PART 1: K-means design and implementation"""
 
 """Change file name and K to analyze the other dataset"""
-dataset_name = "chameleon_clusters.txt"  # or chameleon_clusters.txt
-K = 6  # Or 6
+dataset_name = "2D_gauss_clusters.txt"  # or chameleon_clusters.txt
+K = 15  # Or 6
 
 """initializing KMeans object with given K value"""
 dataset_obj = KMeans.KMeans(K)
