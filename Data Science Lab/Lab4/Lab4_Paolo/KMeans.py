@@ -79,7 +79,7 @@ class KMeans:
                 # Step plotting if requested by user
                 self.scattering_plotting(X, 10)
         end = time.time()  # Computation time
-        print("Time elapsed: ", "%.2f" % float(end - now), "s")
+        print("Time elapsed: ",  int((end - now)/60), "min ", "%.2f" % float((end - now)%60), " sec")
 
         return np.array(self.labels)
 
@@ -90,4 +90,5 @@ class KMeans:
             writer.writerow(['Id', 'ClusterId'])
             for id, a_label in enumerate(self.labels):
                 writer.writerow([id, a_label])
+
 
