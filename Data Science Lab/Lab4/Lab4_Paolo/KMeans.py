@@ -6,7 +6,7 @@ import time
 
 
 class KMeans:
-    def __init__(self, n_clusters, max_iter=100):
+    def __init__(self, n_clusters, max_iter=30):
         self.n_clusters = n_clusters
         self.max_iter = max_iter
         self.centroids = None
@@ -81,10 +81,13 @@ class KMeans:
         end = time.time()  # Computation time
         print("Time elapsed: ", "%.2f" % float(end - now), "s")
 
+        return np.array(self.labels)
+
     def dump_to_file(self, filename):
         #Dump the evaluated labels to a CSV file.
         with open(filename, "w+") as f:
             writer = csv.writer(f)
             writer.writerow(['Id', 'ClusterId'])
             for id, a_label in enumerate(self.labels):
-                writer.writerow([id, a_label[0]])
+                writer.writerow([id, a_label])
+
