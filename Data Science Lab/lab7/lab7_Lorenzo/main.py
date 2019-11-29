@@ -11,7 +11,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
 from librosa.effects import trim
 import csv
-import conv1d
 import NN_random_forest
 import seaborn as sns
 
